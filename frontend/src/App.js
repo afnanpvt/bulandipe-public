@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import axios from 'axios';
 import { 
-  Menu, X, ChevronRight, CheckCircle, Send, 
+  Menu, X, CheckCircle, Send, 
   Building2, Users, TrendingUp, Shield, Sparkles,
   Mail, Phone, MessageSquare, Linkedin, Twitter,
   Instagram, Youtube, ArrowRight, Target, Zap, Globe
