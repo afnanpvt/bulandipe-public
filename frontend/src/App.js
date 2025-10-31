@@ -782,12 +782,12 @@ function App() {
                   <a href="https://x.com/bulandipe" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" data-testid="social-twitter">
                     <Twitter className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" data-testid="social-instagram">
+                  <button onClick={() => {}} className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" data-testid="social-instagram">
                     <Instagram className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" data-testid="social-youtube">
+                  </button>
+                  <button onClick={() => {}} className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors" data-testid="social-youtube">
                     <Youtube className="w-5 h-5" />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
