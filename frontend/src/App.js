@@ -759,10 +759,10 @@ function App() {
               <div>
                 <h4 className="font-semibold mb-4">Legal</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors" data-testid="footer-link-privacy">Privacy Policy</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors" data-testid="footer-link-terms">Terms of Use</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Disclaimer</a></li>
+                  <li><button onClick={() => {}} className="text-gray-400 hover:text-white transition-colors" data-testid="footer-link-privacy">Privacy Policy</button></li>
+                  <li><button onClick={() => {}} className="text-gray-400 hover:text-white transition-colors" data-testid="footer-link-terms">Terms of Use</button></li>
+                  <li><button onClick={() => {}} className="text-gray-400 hover:text-white transition-colors">Cookie Policy</button></li>
+                  <li><button onClick={() => {}} className="text-gray-400 hover:text-white transition-colors">Disclaimer</button></li>
                 </ul>
               </div>
 
