@@ -115,49 +115,56 @@ function App() {
         </div>
         
         {/* Navigation */}
-        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 glass-nav px-6 py-3">
+        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 glass-nav">
           <div className="flex items-center justify-between">
               {/* Logo */}
-              <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-2xl font-bold gradient-text">BulandiPe</span>
+              <div className="flex items-center space-x-3">
+                <img 
+                  src="/bulandipe-txtonly-v1. 1.png" 
+                  alt="BulandiPe Logo" 
+                  className="h-12 w-auto" 
+                  style={{
+                      maxWidth: '500px',
+                      marginLeft: '-20.5px',     /* Change this: 0px=left, 20px=move right, -20px=move left */
+                      marginRight: '30px',    /* Change this: 0px=right, 20px=move left, -20px=move right */
+                      transform: 'translateX(0px)' /* Fine tune: positive=right, negative=left */
+                    }}  
+                />
               </div>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-6">
+              <div className="hidden md:flex items-center space-x-8">
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className={`text-sm font-medium transition-colors px-3 py-2 rounded-full ${activeSection === 'home' ? 'text-white bg-primary' : 'text-white/80 hover:text-white hover:bg-white/10'}`}
+                  className={`text-sm font-medium transition-all duration-200 px-4 py-2 nav-button ${activeSection === 'home' ? 'nav-text-active' : 'nav-text-primary hover:nav-text-hover'}`}
                   data-testid="nav-home"
                 >
                   Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('why')}
-                  className={`text-sm font-medium transition-colors px-3 py-2 rounded-full ${activeSection === 'why' ? 'text-white bg-primary' : 'text-white/80 hover:text-white hover:bg-white/10'}`}
+                  className={`text-sm font-medium transition-all duration-200 px-4 py-2 nav-button ${activeSection === 'why' ? 'nav-text-active' : 'nav-text-primary hover:nav-text-hover'}`}
                   data-testid="nav-why"
                 >
                   Why BulandiPe
                 </button>
                 <button 
                   onClick={() => scrollToSection('how-it-works')}
-                  className={`text-sm font-medium transition-colors px-3 py-2 rounded-full ${activeSection === 'how-it-works' ? 'text-white bg-primary' : 'text-white/80 hover:text-white hover:bg-white/10'}`}
+                  className={`text-sm font-medium transition-all duration-200 px-4 py-2 nav-button ${activeSection === 'how-it-works' ? 'nav-text-active' : 'nav-text-primary hover:nav-text-hover'}`}
                   data-testid="nav-how-it-works"
                 >
                   How It Works
                 </button>
                 <button 
                   onClick={() => scrollToSection('institutions')}
-                  className={`text-sm font-medium transition-colors px-3 py-2 rounded-full ${activeSection === 'institutions' ? 'text-white bg-primary' : 'text-white/80 hover:text-white hover:bg-white/10'}`}
+                  className={`text-sm font-medium transition-all duration-200 px-4 py-2 nav-button ${activeSection === 'institutions' ? 'nav-text-active' : 'nav-text-primary hover:nav-text-hover'}`}
                   data-testid="nav-institutions"
                 >
                   For Institutions
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="bg-white text-primary px-4 py-2 rounded-full font-medium hover:bg-white/90 transition-colors"
+                  className="nav-contact-cta px-5 py-2 font-medium transition-all duration-300"
                   data-testid="nav-contact-cta"
                 >
                   Contact Us
@@ -167,7 +174,7 @@ function App() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-full hover:bg-white/10 text-white"
+                className="md:hidden p-2 rounded-full hover:bg-gray-100 nav-text-primary transition-colors"
                 data-testid="mobile-menu-toggle"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -177,11 +184,11 @@ function App() {
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
             <div className="absolute top-full left-0 right-0 mt-2 glass-nav rounded-3xl p-4 space-y-2" data-testid="mobile-menu">
-              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-4 py-2 text-white/80 hover:bg-white/10 rounded-full">Home</button>
-              <button onClick={() => scrollToSection('why')} className="block w-full text-left px-4 py-2 text-white/80 hover:bg-white/10 rounded-full">Why BulandiPe</button>
-              <button onClick={() => scrollToSection('how-it-works')} className="block w-full text-left px-4 py-2 text-white/80 hover:bg-white/10 rounded-full">How It Works</button>
-              <button onClick={() => scrollToSection('institutions')} className="block w-full text-left px-4 py-2 text-white/80 hover:bg-white/10 rounded-full">For Institutions</button>
-              <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-4 py-2 bg-white text-primary font-medium rounded-full">Contact Us</button>
+              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-4 py-2 nav-text-primary hover:nav-text-hover nav-button transition-colors">Home</button>
+              <button onClick={() => scrollToSection('why')} className="block w-full text-left px-4 py-2 nav-text-primary hover:nav-text-hover nav-button transition-colors">Why BulandiPe</button>
+              <button onClick={() => scrollToSection('how-it-works')} className="block w-full text-left px-4 py-2 nav-text-primary hover:nav-text-hover nav-button transition-colors">How It Works</button>
+              <button onClick={() => scrollToSection('institutions')} className="block w-full text-left px-4 py-2 nav-text-primary hover:nav-text-hover nav-button transition-colors">For Institutions</button>
+              <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-4 py-2 nav-contact-cta font-medium transition-all duration-300">Contact Us</button>
             </div>
           )}
         </nav>
@@ -222,15 +229,15 @@ function App() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/30">
                   <div data-testid="stat-institutions">
-                    <div className="text-3xl font-bold text-white drop-shadow-lg">500+</div>
+                    <div className="text-3xl font-bold text-white drop-shadow-lg">10+</div>
                     <div className="text-sm text-white/80 mt-1">Institutions</div>
                   </div>
                   <div data-testid="stat-supporters">
-                    <div className="text-3xl font-bold text-white drop-shadow-lg">10K+</div>
+                    <div className="text-3xl font-bold text-white drop-shadow-lg">4.5K+</div>
                     <div className="text-sm text-white/80 mt-1">Supporters</div>
                   </div>
                   <div data-testid="stat-impact">
-                    <div className="text-3xl font-bold text-white drop-shadow-lg">₹50Cr+</div>
+                    <div className="text-3xl font-bold text-white drop-shadow-lg">₹50L+</div>
                     <div className="text-sm text-white/80 mt-1">Impact Created</div>
                   </div>
                 </div>
@@ -737,11 +744,18 @@ function App() {
             <div className="grid md:grid-cols-4 gap-8 mb-8">
               {/* Brand */}
               <div className="md:col-span-1">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="text-2xl font-bold">BulandiPe</span>
+                <div className="flex items-center mb-4" style={{justifyContent: 'flex-start'}}>
+                  <img 
+                    src="/bulandipelogov1.2-inverted.png" 
+                    alt="BulandiPe Logo" 
+                    className="h-17 w-auto" 
+                    style={{
+                      maxWidth: '150px',
+                      marginLeft: '-23.5px',     /* Change this: 0px=left, 20px=move right, -20px=move left */
+                      marginRight: '30px',    /* Change this: 0px=right, 20px=move left, -20px=move right */
+                      transform: 'translateX(0px)' /* Fine tune: positive=right, negative=left */
+                    }} 
+                  />
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Next-generation institutional funding and support platform.

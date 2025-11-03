@@ -5,6 +5,20 @@
   padding: 0 24px;
 }
 
+/* CSS Custom Properties for easy corner radius control */
+:root {
+  --nav-border-radius: 5.9px; /* Navigation bar corners */
+  --nav-button-radius: 5px; /* Navigation button corners */
+  --contact-button-radius: 8px; /* Contact Us button corners */
+  --nav-height: 55px; /* Navigation bar height - change this to make it taller/shorter */
+  --nav-padding-y: 28px; /* Vertical padding inside nav */
+  --nav-padding-x: 40px; /* Horizontal padding inside nav */
+  /* Examples:
+     Height: 50px=short, 70px=normal, 90px=tall, 110px=very tall
+     Padding: 12px=tight, 16px=normal, 24px=spacious
+  */
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%);
   -webkit-background-clip: text;
@@ -120,7 +134,7 @@
     #2563EB 100%
   );
   background-size: 100% 400%;
-  animation: sunshineFlow 18s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: sunshineFlow 11s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   opacity: 0.6;
   filter: blur(0.5px);
 }
@@ -156,11 +170,86 @@
 
 /* Glassmorphism Navigation */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--nav-border-radius, 50px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  min-width: 800px;
+  height: var(--nav-height, 70px); /* Controllable height */
+  padding: var(--nav-padding-y, 16px) var(--nav-padding-x, 32px); /* Controllable padding */
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation text colors - now black for visibility */
+.nav-text-primary {
+  color: #1f2937; /* Dark gray/black */
+}
+
+.nav-text-secondary {
+  color: #6b7280; /* Medium gray */
+}
+
+.nav-text-active {
+  color: white;
+  background: #2563EB;
+  border-radius: var(--nav-button-radius, 25px);
+}
+
+.nav-text-hover {
+  color: #1f2937;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: var(--nav-button-radius, 25px);
+}
+
+/* Special Contact Us button styling */
+.nav-contact-cta {
+  background: linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%);
+  color: white;
+  border-radius: var(--contact-button-radius, 8px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-contact-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-contact-cta:hover::before {
+  left: 100%;
+}
+
+.nav-contact-cta:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Regular navigation buttons */
+.nav-button {
+  border-radius: var(--nav-button-radius, 25px);
+}
+
+/* Footer logo positioning */
+.footer-logo-container {
+  justify-content: flex-start; /* Change to: flex-start (left), center, flex-end (right) */
+}
+
+.footer-logo {
+  /* You can adjust these values to move the logo */
+  margin-left: 0px;   /* Move right: increase this value */
+  margin-right: 0px;  /* Move left: increase this value */
+  transform: translateX(0px); /* Fine positioning: negative = left, positive = right */
 }
 
 /* Video fade effects */
