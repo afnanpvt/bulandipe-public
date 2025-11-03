@@ -41,3 +41,8 @@ coverage/
 # Database
 *.db
 *.sqlite
+
+# Archive files
+*.zip
+*.rar
+*.tar.gz
