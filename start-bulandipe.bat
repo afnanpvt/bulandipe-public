@@ -1,0 +1,19 @@
+@echo off
+echo Starting BulandiPe Application...
+echo.
+echo Starting Backend Server...
+start "BulandiPe Backend" cmd /c "cd backend && python server.py"
+
+echo Waiting 3 seconds for backend to start...
+timeout /t 3 /nobreak > nul
+
+echo Starting Frontend Server...
+start "BulandiPe Frontend" cmd /c "cd frontend && yarn start"
+
+echo.
+echo Both servers are starting...
+echo Backend: http://localhost:8001
+echo Frontend: http://localhost:3006
+echo.
+echo Press any key to exit...
+pause > nul

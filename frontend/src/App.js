@@ -108,10 +108,15 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
+        {/* Extended Animated Background */}
+        <div className="absolute inset-0 z-0" style={{height: '130vh'}}>
+          <div className="animated-gradient"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-3/5 bg-gradient-to-t from-white via-white/30 via-white/10 to-transparent"></div>
+        </div>
+        
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
-          <div className="section-container">
-            <div className="flex items-center justify-between h-16">
+        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 glass-nav px-6 py-3">
+          <div className="flex items-center justify-between">
               {/* Logo */}
               <div className="flex items-center space-x-2">
                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
@@ -121,38 +126,38 @@ function App() {
               </div>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-8">
+              <div className="hidden md:flex items-center space-x-6">
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className={`text-sm font-medium transition-colors ${activeSection === 'home' ? 'text-primary' : 'text-gray-600 hover:text-primary'}`}
+                  className={`text-sm font-medium transition-colors px-3 py-2 rounded-full ${activeSection === 'home' ? 'text-white bg-primary' : 'text-white/80 hover:text-white hover:bg-white/10'}`}
                   data-testid="nav-home"
                 >
                   Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('why')}
-                  className={`text-sm font-medium transition-colors ${activeSection === 'why' ? 'text-primary' : 'text-gray-600 hover:text-primary'}`}
+                  className={`text-sm font-medium transition-colors px-3 py-2 rounded-full ${activeSection === 'why' ? 'text-white bg-primary' : 'text-white/80 hover:text-white hover:bg-white/10'}`}
                   data-testid="nav-why"
                 >
                   Why BulandiPe
                 </button>
                 <button 
                   onClick={() => scrollToSection('how-it-works')}
-                  className={`text-sm font-medium transition-colors ${activeSection === 'how-it-works' ? 'text-primary' : 'text-gray-600 hover:text-primary'}`}
+                  className={`text-sm font-medium transition-colors px-3 py-2 rounded-full ${activeSection === 'how-it-works' ? 'text-white bg-primary' : 'text-white/80 hover:text-white hover:bg-white/10'}`}
                   data-testid="nav-how-it-works"
                 >
                   How It Works
                 </button>
                 <button 
                   onClick={() => scrollToSection('institutions')}
-                  className={`text-sm font-medium transition-colors ${activeSection === 'institutions' ? 'text-primary' : 'text-gray-600 hover:text-primary'}`}
+                  className={`text-sm font-medium transition-colors px-3 py-2 rounded-full ${activeSection === 'institutions' ? 'text-white bg-primary' : 'text-white/80 hover:text-white hover:bg-white/10'}`}
                   data-testid="nav-institutions"
                 >
                   For Institutions
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="btn-primary"
+                  className="bg-white text-primary px-4 py-2 rounded-full font-medium hover:bg-white/90 transition-colors"
                   data-testid="nav-contact-cta"
                 >
                   Contact Us
@@ -162,40 +167,38 @@ function App() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+                className="md:hidden p-2 rounded-full hover:bg-white/10 text-white"
                 data-testid="mobile-menu-toggle"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
-            </div>
-
-            {/* Mobile Navigation */}
-            {mobileMenuOpen && (
-              <div className="md:hidden py-4 space-y-2 border-t border-gray-100" data-testid="mobile-menu">
-                <button onClick={() => scrollToSection('home')} className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">Home</button>
-                <button onClick={() => scrollToSection('why')} className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">Why BulandiPe</button>
-                <button onClick={() => scrollToSection('how-it-works')} className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">How It Works</button>
-                <button onClick={() => scrollToSection('institutions')} className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">For Institutions</button>
-                <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-4 py-2 text-primary font-medium hover:bg-blue-50 rounded-lg">Contact Us</button>
-              </div>
-            )}
           </div>
+          
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="absolute top-full left-0 right-0 mt-2 glass-nav rounded-3xl p-4 space-y-2" data-testid="mobile-menu">
+              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-4 py-2 text-white/80 hover:bg-white/10 rounded-full">Home</button>
+              <button onClick={() => scrollToSection('why')} className="block w-full text-left px-4 py-2 text-white/80 hover:bg-white/10 rounded-full">Why BulandiPe</button>
+              <button onClick={() => scrollToSection('how-it-works')} className="block w-full text-left px-4 py-2 text-white/80 hover:bg-white/10 rounded-full">How It Works</button>
+              <button onClick={() => scrollToSection('institutions')} className="block w-full text-left px-4 py-2 text-white/80 hover:bg-white/10 rounded-full">For Institutions</button>
+              <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-4 py-2 bg-white text-primary font-medium rounded-full">Contact Us</button>
+            </div>
+          )}
         </nav>
 
         {/* Hero Section */}
-        <section id="home" className="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden" data-testid="hero-section">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-gray-50 opacity-60"></div>
-          <div className="section-container relative z-10">
+        <section id="home" className="pt-32 pb-20 md:pt-40 md:pb-32 relative z-10" data-testid="hero-section">
+          <div className="section-container relative z-20">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left: Text Content */}
               <div className="space-y-8 fade-in">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight" data-testid="hero-heading">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white drop-shadow-lg" data-testid="hero-heading">
                   Empowering{' '}
-                  <span className="gradient-text">Institutions</span>
+                  <span className="text-blue-200">Institutions</span>
                   <br />
                   Through Innovation
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-xl" data-testid="hero-description">
+                <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-xl drop-shadow-md" data-testid="hero-description">
                   Next-generation funding and support platform connecting institutions, supporters, and students for transformative impact.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -217,24 +220,24 @@ function App() {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+                <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/30">
                   <div data-testid="stat-institutions">
-                    <div className="text-3xl font-bold text-primary">500+</div>
-                    <div className="text-sm text-gray-600 mt-1">Institutions</div>
+                    <div className="text-3xl font-bold text-white drop-shadow-lg">500+</div>
+                    <div className="text-sm text-white/80 mt-1">Institutions</div>
                   </div>
                   <div data-testid="stat-supporters">
-                    <div className="text-3xl font-bold text-primary">10K+</div>
-                    <div className="text-sm text-gray-600 mt-1">Supporters</div>
+                    <div className="text-3xl font-bold text-white drop-shadow-lg">10K+</div>
+                    <div className="text-sm text-white/80 mt-1">Supporters</div>
                   </div>
                   <div data-testid="stat-impact">
-                    <div className="text-3xl font-bold text-primary">₹50Cr+</div>
-                    <div className="text-sm text-gray-600 mt-1">Impact Created</div>
+                    <div className="text-3xl font-bold text-white drop-shadow-lg">₹50Cr+</div>
+                    <div className="text-sm text-white/80 mt-1">Impact Created</div>
                   </div>
                 </div>
               </div>
 
-              {/* Right: Image */}
-              <div className="relative slide-up">
+              {/* Right: Image - Commented out as requested */}
+              {/* <div className="relative slide-up">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl hover-lift">
                   <img 
                     src="https://images.unsplash.com/photo-1662736619557-5557b6a3ae12?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGlsbHVzdHJhdGlvbnxlbnwwfHx8Ymx1ZXwxNzYxOTIwNjY2fDA&ixlib=rb-4.1.0&q=85"
@@ -243,17 +246,16 @@ function App() {
                     data-testid="hero-image"
                   />
                 </div>
-                {/* Floating elements */}
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary rounded-full opacity-20 animate-float"></div>
                 <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-blue-300 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
 
         {/* Why BulandiPe Section */}
-        <section id="why" className="py-20 md:py-32 bg-gray-50" data-testid="why-section">
-          <div className="section-container">
+        <section id="why" className="py-20 md:py-32 relative z-10" data-testid="why-section">
+          <div className="section-container relative z-20">
             <div className="text-center max-w-3xl mx-auto mb-16 fade-in">
               <h2 className="text-4xl md:text-5xl font-bold mb-6" data-testid="why-heading">
                 Why <span className="gradient-text">BulandiPe</span>?
@@ -315,7 +317,7 @@ function App() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Smart Technology</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  AI-powered matching connects the right supporters with the right causes for optimal outcomes.
+                  Advanced matching technology connects the right supporters with the right causes for optimal outcomes.
                 </p>
               </div>
 
@@ -368,7 +370,7 @@ function App() {
                   <div>
                     <h3 className="text-2xl font-bold mb-3">Smart Matching</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Our AI-powered platform connects institutions with relevant supporters, alumni, and funding opportunities based on alignment and impact potential.
+                      Our platform connects institutions with relevant supporters, alumni, and funding opportunities based on alignment and impact potential.
                     </p>
                   </div>
                 </div>
@@ -400,7 +402,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="relative slide-up">
+              {/* How It Works Image - Commented out as requested */}
+              {/* <div className="relative slide-up">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl hover-lift">
                   <img 
                     src="https://images.pexels.com/photos/34337249/pexels-photo-34337249.jpeg"
@@ -409,7 +412,7 @@ function App() {
                     data-testid="how-image"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -470,7 +473,8 @@ function App() {
 
               {/* Collaboration Request Form */}
               <div className="bg-white text-gray-900 p-8 md:p-10 rounded-2xl shadow-2xl" data-testid="collaboration-form">
-                <h3 className="text-2xl font-bold mb-6 text-center">Request Collaboration</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center">Apply for Funding Partnership</h3>
+                <p className="text-center text-gray-600 mb-6 text-sm">Submit your institution's details to explore funding opportunities and partnerships.</p>
                 
                 {collabStatus.message && (
                   <div className={`mb-6 p-4 rounded-lg ${
@@ -570,7 +574,7 @@ function App() {
                     disabled={collabStatus.type === 'loading'}
                     data-testid="collab-submit-button"
                   >
-                    <span>{collabStatus.type === 'loading' ? 'Submitting...' : 'Request Collaboration'}</span>
+                    <span>{collabStatus.type === 'loading' ? 'Submitting Application...' : 'Apply for Partnership'}</span>
                     <Send className="w-5 h-5" />
                   </button>
                 </form>
